@@ -35,7 +35,7 @@ python main_train.py -s 'CD'
 - Then, `.pth`, `.csv`, and `.png` are saved in the folder `/models_and_results/model_weights/`.
 
 ## Step 3: network inference
-### inference for DD, tPD, and CD.
+### inference in DD, tPD, and CD.
 - Run `main_single_inference.py`.
 ```sh
 python main_single_inference.py -s 'DD'
@@ -48,12 +48,12 @@ python main_single_inference.py -s 'CD'
 ```
 - Then, inference results are saved in the folder `/models_and_results/results_DD_tPD_CD/`.
 
-### inference for untrained physics-driven (uPD), trained physics-driven with refinement (tPDr).
+### inference in untrained physics-driven (uPD), trained physics-driven with refinement (tPDr).
 - Run `main_multiple_inferences`.
 ```sh
 python main_multiple_inferences -s 'uPD'
 ```
-Note that 'uPD' can be run before Step2.
+Note that _python main_multiple_inferences -s 'uPD'_ can be run before Step 2.
 ```sh
 python main_multiple_inferences -s 'tPDr'
 ```
