@@ -17,7 +17,7 @@ import csv
 import scipy.io as sio
 import os
 import matplotlib.pyplot as plt
-os.environ['CUDA_VISIBLE_DEVICES'] = '2'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'  # Specify GPU
 
 from skimage.metrics import mean_squared_error as compare_mse
 

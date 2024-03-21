@@ -11,7 +11,7 @@ Reference: Pending
 Email: kqwang.optics@gmail.com
 """
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'  # Specify GPU
 from optparse import OptionParser
 import torch
 import csv

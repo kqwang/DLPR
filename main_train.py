@@ -17,7 +17,7 @@ import csv
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'  # Specify GPU
 
 from network import UNet
 from data_read import get_dataloaders
@@ -33,7 +33,7 @@ def get_args():
     parser.add_option('--input', dest='input', default='datasets/train_in/', help='folder of input')
     parser.add_option('--ground truth', dest='gt', default='datasets/train_gt/', help='folder of ground truth')
     parser.add_option('--model', dest='model', default='models_and_results/model_weights/', help='folder for model/weights')
-    parser.add_option('-s', "--training strategy", dest='strategy', default="CD", choices=["DD", "tPD", "CD"], help='training strategy')
+    parser.add_option('-s', "--training strategy", dest='strategy', default="DD", choices=["DD", "tPD", "CD"], help='training strategy')
 
     (options, args) = parser.parse_args()
     return options
