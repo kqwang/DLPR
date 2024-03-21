@@ -1,6 +1,6 @@
-# Deep learning phase recovery: dataset-driven, physics-driven, or co-driven?
+# Deep learning phase recovery (DLPR)
 
-Paper in review
+For the paper "Deep learning phase recovery: dataset-driven, physics-driven, or co-driven?" (under review)
 
 ## Environment requirements
 - python==3.8.0
