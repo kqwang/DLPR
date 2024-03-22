@@ -10,7 +10,7 @@ From: https://github.com/kqwang/DLPR/
 Email: kqwang.optics@gmail.com
 """
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'  # Specify GPU
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'  # Specify GPU
 import torch
 import csv
 import os.path

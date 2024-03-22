@@ -10,7 +10,7 @@ From: https://github.com/kqwang/DLPR/
 Email: kqwang.optics@gmail.com
 """
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'  # Specify GPU
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'  # Specify GPU
 import torch
 import csv
 import numpy as np
@@ -37,11 +37,12 @@ def get_args():
     parser.add_option('--dimension', dest='dim', default=256, type='int', help='dimension of the dataset, [dim, dim]')
     parser.add_option('--norm', dest='norm', default=False, type='int', help='Set True for holograms in the range of [0,1]')
     parser.add_option('-s', "--training strategy", dest='strategy', default="DD", choices=["DD", "tPD", "CD"], help='training strategy, DD, tPD, and CD')
+    parser.add_option('--alpha', dest='alpha', default=0.3, type='float', help='weight of dataset term in the loss function of CD')
     (options, args) = parser.parse_args()
     return options
 
 ' Run of the training '
-def setup_and_run(dir_input, dir_gt, dir_model, batch_size, epochs, lr, rth, prop_dis, dim, norm, strategy):
+def setup_and_run(dir_input, dir_gt, dir_model, batch_size, epochs, lr, rth, prop_dis, dim, norm, strategy, alpha):
     # Use GPU or not
     use_cuda = torch.cuda.is_available()
     device = torch.device("cuda" if use_cuda else "cpu")
@@ -85,7 +86,7 @@ def setup_and_run(dir_input, dir_gt, dir_model, batch_size, epochs, lr, rth, pro
                                                          norm=norm, rand_to_holo=rth, dim=dim)
         elif strategy == "CD":
             train_loss, input, output, gt = train_net_CD(net, device, train_loader, optimizer, loss_f, prop_dis=prop_dis,
-                                                         norm=norm, rand_to_holo=rth, dim=dim)
+                                                         norm=norm, rand_to_holo=rth, dim=dim, alpha=alpha)
         else:
             raise Exception("invalid training strategy")
 
@@ -157,4 +158,5 @@ if __name__ == "__main__":
         prop_dis=args.prop_dis,
         dim=args.dim,
         norm=args.norm,
-        strategy=args.strategy)
+        strategy=args.strategy,
+        alpha=args.alpha)
