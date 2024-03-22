@@ -97,10 +97,10 @@ python one_infer.py -s 'CD'
 ### Step 3.2: inference in untrained physics-driven (uPD), trained physics-driven with refinement (tPDr).
 - Run `multiple_infer.py`.
 ```sh
-python multiple_infer -s 'uPD'
+python multiple_infer.py -s 'uPD'
 ```
-Note that _python multiple_infer -s 'uPD'_ can be run before Step 2.
+Note that _python multiple_infer.py -s 'uPD'_ can be run before Step 2.
 ```sh
-python multiple_infer -s 'tPDr'
+python multiple_infer.py -s 'tPDr'
 ```
 - Then, inference results are saved in the folder `/models_and_results/results_uPD_tPDr/`.
