@@ -1,12 +1,11 @@
 """
-Demo for neural network inference with DD, tPD, and CD strategies
+Neural network inference with DD, tPD, and CD strategies
 
 DD = Dataset-driven
 tPD = Trained physics-driven
 CD = Co-driven
 
-Reference: Pending
-
+From: https://github.com/kqwang/DLPR/
 @author: Kaiqiang Wang
 Email: kqwang.optics@gmail.com
 """
@@ -29,7 +28,7 @@ from data_read import get_dataloader_for_test
 ' Definition of the needed parameters '
 def get_args():
     parser = OptionParser()
-    parser.add_option('-e', '--result', dest='result', default="models_and_results/results_DD_tPD_CD/", help='folder of results')
+    parser.add_option('-e', '--result', dest='result', default="models_and_results/results_DD_tPD_CD/", help='folder for inference results')
     parser.add_option('-r', '--root', dest='root', default="./", help='root directory')
     parser.add_option('-m', '--model', dest='model', default='models_and_results/model_weights/', help='folder for model/weights')
     parser.add_option('-i', '--input', dest='input', default="datasets/test_in/", help='folder of input')

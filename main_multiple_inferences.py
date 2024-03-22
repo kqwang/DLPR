@@ -1,11 +1,10 @@
 """
-Demo for neural network inference with uPD and tPDr strategies
+Neural network inference with uPD and tPDr strategies
 
 uPD = untrained physics-driven
 tPDr = Trained physics-driven with refinement
 
-Reference: Pending
-
+From: https://github.com/kqwang/DLPR/
 @author: Kaiqiang Wang
 Email: kqwang.optics@gmail.com
 """
@@ -29,13 +28,13 @@ from train_func import train_net_PD
 def get_args():
     parser = OptionParser()
     parser.add_option('--result', dest='result',
-                      default="models_and_results/results_uPD_tPDr/", help='folder of results')
+                      default="models_and_results/results_uPD_tPDr/", help='folder for inference results')
     parser.add_option('--epochs', dest='epochs', default=10000, type='int', help='number of epochs')
     parser.add_option('--learning rate', dest='lr', default=0.001, type='float', help='learning rate')
     parser.add_option('--root', dest='root', default="./", help='root directory')
     parser.add_option('--input', dest='input', default='datasets/test_in/', help='folder of input')
     parser.add_option('--ground truth', dest='gt', default='datasets/test_gt/', help='folder of ground truth')
-    parser.add_option('--model', dest='model', default='models_and_results/model_weights/', help='folder for model/weights')
+    parser.add_option('--model', dest='model', default='models_and_results/model_weights/', help='folder for model weights')
     parser.add_option('-s', "--inference strategy", dest='strategy', default="uPD", choices=["uPD", "tPDr"], help='inference strategy, uPD or tPDr')
 
     (options, args) = parser.parse_args()

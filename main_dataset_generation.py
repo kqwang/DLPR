@@ -1,8 +1,7 @@
 """
-Demo for hologram-phase dataset generation
+Hologram-phase dataset generation
 
-Reference: Pending
-
+From: https://github.com/kqwang/DLPR/
 @author: Kaiqiang Wang
 Email: kqwang.optics@gmail.com
 """
@@ -20,14 +19,14 @@ import os
 ' Definition of the needed parameters '
 def get_args():
     parser = OptionParser()
-    parser.add_option('--images', dest='images', default='datasets/row_images/', help='folder of the row image dataset')
+    parser.add_option('--images', dest='images', default='datasets/row_images/', help='folder of the raw image dataset')
     parser.add_option('--root', dest='root', default="./", help='root directory')
     parser.add_option('--train in', dest='train_in', default='datasets/train_in/', help='folder of the train input')
-    parser.add_option('--train gt', dest='train_gt', default='datasets/train_gt/', help='folder of the train gt')
+    parser.add_option('--train gt', dest='train_gt', default='datasets/train_gt/', help='folder of the train ground truth (gt)')
     parser.add_option('--test in', dest='test_in', default='datasets/test_in/', help='folder of the test input')
-    parser.add_option('--test gt', dest='test_gt', default='datasets/test_gt/', help='folder of the test gt')
+    parser.add_option('--test gt', dest='test_gt', default='datasets/test_gt/', help='folder of the test ground truth (gt)')
     parser.add_option('--prop dis', dest='prop_dis', default=20, type='float', help='propagation distance, mm')
-    parser.add_option('--norm', dest='norm', default=False, type='int', help='hologram normalization, (False or True)')
+    parser.add_option('--norm', dest='norm', default=False, type='int', help='hologram normalization, False or True')
     parser.add_option('--phase min', dest='p_min', default=1, type='float', help='min of h, where phase in [0, h]')
     parser.add_option('--phase max', dest='p_max', default=1, type='float', help='max of h, where phase in [0, h]')
     parser.add_option('--dimension', dest='dim', default=256, type='int', help='dimension of the dataset, [dim, dim]')

@@ -1,8 +1,7 @@
 """
 Datasets reading functions
 
-Reference: Pending
-
+From: https://github.com/kqwang/DLPR/
 @author: Kaiqiang Wang
 Email: kqwang.optics@gmail.com
 """
@@ -18,8 +17,8 @@ class PUDataset(Dataset):
         self.dir_input = dir_input
         self.dir_gt = dir_gt
         self.extension = extension
-        self.ids = ids # Dataset IDS
-        self.data_len = len(self.ids) # Calculate len of data
+        self.ids = ids  # Dataset IDS
+        self.data_len = len(self.ids)  # Calculate len of data
 
     ' Ask for input and ground truth'
     def __getitem__(self, index):
@@ -45,10 +44,9 @@ def get_dataloaders(dir_input, dir_gt, batch_size=10):
     ids = [f[:-4] for f in os.listdir(dir_input)]  # Read the names of the images
     dset = PUDataset(ids, dir_input, dir_gt)  # Get the dataset
     dataloaders = DataLoader(dset, batch_size=batch_size, shuffle=True, drop_last=False)  # Create the dataloaders
-
     return dataloaders
 
-' Return the training dataset separated in batches '
+' Return the No.th sample in the testing dataset'
 def get_dataloaders_th(dir_input, dir_gt, th):
     ids = [f[:-4] for f in sorted(os.listdir(dir_input))][th:th+1]  # Read the names of the images
     dset = PUDataset(ids, dir_input, dir_gt)  # Get the dataset

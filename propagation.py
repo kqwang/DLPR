@@ -1,8 +1,7 @@
 """
 pytorch-based forward diffraction propagation
 
-Reference: Pending
-
+From: https://github.com/kqwang/DLPR/
 @author: Kaiqiang Wang
 Email: kqwang.optics@gmail.com
 """

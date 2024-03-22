@@ -1,12 +1,11 @@
 """
-Demo for neural network training with DD, tPD, and CD strategies
+Neural network training with DD, tPD, and CD strategies
 
 DD = Dataset-driven
 tPD = Trained physics-driven
 CD = Co-driven
 
-Reference: Pending
-
+From: https://github.com/kqwang/DLPR/
 @author: Kaiqiang Wang
 Email: kqwang.optics@gmail.com
 """
@@ -27,13 +26,13 @@ from train_func import train_net_CD, train_net_PD, train_net_DD
 def get_args():
     parser = OptionParser()
     parser.add_option('--epochs', dest='epochs', default=100, type='int', help='number of epochs')
-    parser.add_option('--batch size', dest='batch_size', default=16, type='int', help='batch size')
+    parser.add_option('--batch size', dest='batch_size', default=32, type='int', help='batch size')
     parser.add_option('--learning rate', dest='lr', default=0.001, type='float', help='learning rate')
     parser.add_option('--root', dest='root', default="./", help='root directory')
     parser.add_option('--input', dest='input', default='datasets/train_in/', help='folder of input')
     parser.add_option('--ground truth', dest='gt', default='datasets/train_gt/', help='folder of ground truth')
-    parser.add_option('--model', dest='model', default='models_and_results/model_weights/', help='folder for model/weights')
-    parser.add_option('-s', "--training strategy", dest='strategy', default="DD", choices=["DD", "tPD", "CD"], help='training strategy')
+    parser.add_option('--model', dest='model', default='models_and_results/model_weights/', help='folder for model weights')
+    parser.add_option('-s', "--training strategy", dest='strategy', default="DD", choices=["DD", "tPD", "CD"], help='training strategy, DD, tPD, and CD')
 
     (options, args) = parser.parse_args()
     return options
