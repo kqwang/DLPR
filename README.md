@@ -3,7 +3,7 @@
 For the paper "Deep learning phase recovery: dataset-driven, physics-driven, or co-driven?" (under review)
 
 ## Environment requirements
-
+- python == 3.8.18
 - pytorch == 2.0.0
 - matplotlib == 3.7.2
 - numpy == 1.24.3
@@ -13,8 +13,9 @@ For the paper "Deep learning phase recovery: dataset-driven, physics-driven, or 
 - tqdm == 4.65.0
 
 The following software is recommended:
-- python == 3.8.0
-- CUDA == 10.1
+
+- CUDA == 11.7
+-  cuDNN == 8.5.0
 
 ## Step 1: dataset generation
 - Download image datasets such as [ImageNet](https://www.image-net.org/), [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html), [COCO](https://cocodataset.org/), [LFW](https://vis-www.cs.umass.edu/lfw/), and [MNIST](https://yann.lecun.com/exdb/mnist/).
