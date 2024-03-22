@@ -20,7 +20,6 @@ The following software is recommended:
 ## File structure
 ```
 DLPR
-|── README.md
 ├── dataset_generation.py
 ├── train.py
 ├── one_infer.py
