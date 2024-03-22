@@ -53,7 +53,7 @@ python main_single_inference.py -s 'CD'
 - Then, inference results are saved in the folder `/models_and_results/results_DD_tPD_CD/`.
 
 ### inference in untrained physics-driven (uPD), trained physics-driven with refinement (tPDr).
-- Run `main_multiple_inferences`.
+- Run `main_multiple_inferences.py`.
 ```sh
 python main_multiple_inferences -s 'uPD'
 ```
