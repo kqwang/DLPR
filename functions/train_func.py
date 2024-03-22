@@ -68,7 +68,7 @@ def train_net_PD(net, device, loader, optimizer, loss_f, prop_dis=20, norm=False
     return train_loss.avg, input,  output, gt
 
 ' network training function for CD'
-def train_net_CD(net, device, loader, optimizer, loss_f, prop_dis=20, norm=False, rand_to_holo=False, dim=256):
+def train_net_CD(net, device, loader, optimizer, loss_f, prop_dis=20, norm=False, rand_to_holo=False, dim=256, alpha=0.3):
     net.train()
     train_loss = AverageMeter()
     for batch_idx, (input, gt) in enumerate(loader):
@@ -83,8 +83,7 @@ def train_net_CD(net, device, loader, optimizer, loss_f, prop_dis=20, norm=False
         H = propagation(output, prop_dis=prop_dis, norm=norm, dim=dim)
         loss0 = loss_f(output, gt)  # Loss calculation of DD
         loss1 = loss_f(input, H)  # Loss calculation of PD
-        w = 0.3  # weight for PD_DD balance
-        loss = w*loss0 + loss1
+        loss = alpha*loss0 + loss1
         train_loss.update(loss.item(), output.size(0))  # Update the record
 
         # Back propagation
