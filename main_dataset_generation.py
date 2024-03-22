@@ -19,7 +19,7 @@ import os
 ' Definition of the needed parameters '
 def get_args():
     parser = OptionParser()
-    parser.add_option('--images', dest='images', default='datasets/row_images/', help='folder of the raw image dataset')
+    parser.add_option('--images', dest='images', default='datasets/raw_images/', help='folder of the raw image dataset')
     parser.add_option('--root', dest='root', default="./", help='root directory')
     parser.add_option('--train in', dest='train_in', default='datasets/train_in/', help='folder of the train input')
     parser.add_option('--train gt', dest='train_gt', default='datasets/train_gt/', help='folder of the train ground truth (gt)')
