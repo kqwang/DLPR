@@ -111,4 +111,4 @@ Note that _python multiple_infer.py -s 'uPD'_ can be run before Step 2.
 ```sh
 python multiple_infer.py -s 'tPDr'
 ```
-- Then, inference results are saved in the folder `/_and_results/results_uPD_tPDr/`.
+- Then, inference results are saved in the folder `/models_and_results/results_uPD_tPDr/`.
