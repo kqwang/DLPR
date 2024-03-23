@@ -1,6 +1,6 @@
 # Deep learning phase recovery (DLPR)
 
-For the paper "Deep learning phase recovery: dataset-driven, physics-driven, or co-driven?" (under review)
+Kaiqiang Wang and Edmund Y. Lam, "Deep learning phase recovery: dataset-driven, physics-driven, or co-driven?" Advanced Photonics (under review). [\[Preprint\]](https://arxiv.org/abs/xx.xx)
 
 ## Environment requirements
 - python == 3.8.18
@@ -64,7 +64,7 @@ DLPR
 ```sh
 python dataset_generation.py
 ```
-- Then, hologram-phase datasets are generated in the folder `/datasets/train_in/`, `/datasets/train_gt/`, `/datasets/test_in/`, and `/datasets/test_gt/`.
+- Then, hologram-phase datasets are generated in the folders `/datasets/train_in/`, `/datasets/train_gt/`, `/datasets/test_in/`, and `/datasets/test_gt/`.
 
 ## Step 2: network training
 - Run `train.py` to train the neural network in the strategy of dataset-driven(DD), trained physics-driven (tPD), or co-driven (CD).
@@ -80,7 +80,7 @@ python train.py -s 'CD'
 - Then, `.pth`, `.csv`, and `.png` are saved in the folder `/models_and_results/model_weights/`.
 
 ## Step 3: network inference
-### Step 3.1: inference in DD, tPD, and CD.
+### Step 3.1: inference for DD, tPD, and CD strategies.
 - Run `one_infer.py`.
 ```sh
 python one_infer.py -s 'DD'
@@ -93,7 +93,7 @@ python one_infer.py -s 'CD'
 ```
 - Then, inference results are saved in the folder `/models_and_results/results_DD_tPD_CD/`.
 
-### Step 3.2: inference in untrained physics-driven (uPD) and trained physics-driven with refinement (tPDr).
+### Step 3.2: inference for the strategies of untrained physics-driven (uPD) and trained physics-driven with refinement (tPDr).
 - Run `multiple_infer.py`.
 ```sh
 python multiple_infer.py -s 'uPD'
