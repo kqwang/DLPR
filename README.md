@@ -40,8 +40,8 @@ DLPR
 │   │   ├── ...
 │   └── test_gt
 │       ├── ...
-├── weights_and_results
-│   ├── weights
+├── models_and_results
+│   ├── model_weights
 │   │   ├── ...
 │   ├── results_DD_tPD_CD
 │   │   ├── ...
@@ -50,7 +50,7 @@ DLPR
 
 ```
 | Folders or files | Use |  
-|  ----  | ----  |
+|  :----  | :----  |
 | `dataset_generation.py` | generate paired hologram-phase datasets |  
 | `train.py` | train the neural network in the strategies of DD, tPD, and CD | 
 | `one_infer.py` | infer the neural network in the strategies of DD, tPD, or CD | 
@@ -61,9 +61,9 @@ DLPR
 | `/datasets/train_gt/`| contains the generated phases for network training | 
 | `/datasets/test_in/`| contains the generated holograms for network inference  | 
 | `/datasets/test_gt/`| contains the generated phases for network inference  | 
-| `/weights_and_results/weights/`|  contains the trained network weights and training process  | 
-| `/weights_and_results/results_DD_tPD_CD/`|  contains the inference results of DD, tPD, and CD.  | 
-| `/weights_and_results/results_uPD_tPDr/`|  contains the inference results of uPD and tPDr.| 
+| `/models_and_results/model_weights/`|  contains the trained network weights and training process | 
+| `/models_and_results/results_DD_tPD_CD/`|  contains the inference results of DD, tPD, and CD.  | 
+| `/models_and_results/results_uPD_tPDr/`|  contains the inference results of uPD and tPDr| 
 
 ## Step 1: dataset generation
 - Download image datasets such as [ImageNet](https://www.image-net.org/), [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html), [COCO](https://cocodataset.org/), [LFW](https://vis-www.cs.umass.edu/lfw/), and [MNIST](https://yann.lecun.com/exdb/mnist/). Alternatively, you can generate random unnatural images with this Python package [randimage](https://pypi.org/project/randimage/).
@@ -85,7 +85,7 @@ python train.py -s 'tPD'
 ```sh
 python train.py -s 'CD'
 ```
-- Then, `.pth`, `.csv`, and `.png` are saved in the folder `/weights_and_results/weights/`.
+- Then, `.pth`, `.csv`, and `.png` are saved in the folder `/models_and_results/model_weights/`.
 
 ## Step 3: network inference
 ### Step 3.1: inference for DD, tPD, and CD strategies.
@@ -99,7 +99,7 @@ python one_infer.py -s 'tPD'
 ```sh
 python one_infer.py -s 'CD'
 ```
-- Then, inference results are saved in the folder `/weights_and_results/results_DD_tPD_CD/`.
+- Then, inference results are saved in the folder `/models_and_results/results_DD_tPD_CD/`.
 
 ### Step 3.2: inference for the strategies of untrained physics-driven (uPD) and trained physics-driven with refinement (tPDr).
 - Run `multiple_infer.py`.
@@ -110,4 +110,4 @@ Note that _python multiple_infer.py -s 'uPD'_ can be run before Step 2.
 ```sh
 python multiple_infer.py -s 'tPDr'
 ```
-- Then, inference results are saved in the folder `/weights_and_results/results_uPD_tPDr/`.
+- Then, inference results are saved in the folder `/_and_results/results_uPD_tPDr/`.
