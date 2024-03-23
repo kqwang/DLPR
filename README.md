@@ -66,7 +66,7 @@ DLPR
 | `/models_and_results/results_uPD_tPDr/`|  contains the inference results of uPD and tPDr| 
 
 ## Step 1: dataset generation
-- Download image datasets such as [ImageNet](https://www.image-net.org/), [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html), [COCO](https://cocodataset.org/), [LFW](https://vis-www.cs.umass.edu/lfw/), and [MNIST](https://yann.lecun.com/exdb/mnist/). Alternatively, you can generate random unnatural images with this Python package [randimage](https://pypi.org/project/randimage/).
+- Download image datasets such as [ImageNet](https://www.image-net.org/), [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html), [COCO](https://cocodataset.org/), [LFW](https://vis-www.cs.umass.edu/lfw/), and [MNIST](https://yann.lecun.com/exdb/mnist/). Alternatively,  [randimage](https://pypi.org/project/randimage/) can be used to generate random unnatural images.
 - Put the downloaded or generated images in the folder `/datasets/raw_images/`.
 - Run `dataset_generation.py` to generate paired hologram-phase datasets.
 ```sh
