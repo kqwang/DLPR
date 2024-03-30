@@ -32,7 +32,6 @@ def get_args():
     parser.add_option('-i', '--input', dest='input', default="datasets/test_in/", help='folder of input')
     parser.add_option('-g', '--gt', dest='gt', default="datasets/test_gt/", help='folder of ground truth')
     parser.add_option('-s', "--inference strategy", dest='strategy', default="DD", choices=["DD", "tPD", "CD"], help='inference strategy, DD, tPD, or CD')
-
     (options, args) = parser.parse_args()
     return options
 

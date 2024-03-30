@@ -99,7 +99,6 @@ def setup_and_run(dir_input, dir_gt, dir_model, batch_size, epochs, lr, rth, pro
             plt.title('input (hologram)')
             plt.colorbar(fraction=0.05, pad=0.05)
             plt.axis('off')
-
             plt.subplot(132)
             output_np = output[0, 0, :, :].detach().cpu().numpy()
             output_np = output_np - np.min(output_np)
@@ -107,7 +106,6 @@ def setup_and_run(dir_input, dir_gt, dir_model, batch_size, epochs, lr, rth, pro
             plt.title('output (phase)')
             plt.colorbar(fraction=0.05, pad=0.05)
             plt.axis('off')
-
             plt.subplot(133)
             plt.imshow(gt[0, 0, :, :].detach().cpu().numpy(), cmap="inferno")
             plt.title('gt (phase)')

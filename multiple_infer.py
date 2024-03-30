@@ -39,7 +39,6 @@ def get_args():
     parser.add_option('--dimension', dest='dim', default=256, type='int', help='dimension of the dataset, [dim, dim]')
     parser.add_option('--norm', dest='norm', default=False, type='int', help='Set True for holograms in the range of [0,1]')
     parser.add_option('-s', "--inference strategy", dest='strategy', default="uPD", choices=["uPD", "tPDr"], help='inference strategy, uPD or tPDr')
-
     (options, args) = parser.parse_args()
     return options
 
@@ -74,14 +73,9 @@ def setup_and_run(dir_input, dir_gt, dir_model, cycles, resultdir, lr, prop_dis,
         else:
             raise Exception("invalid inference strategy")
 
-        # dataset loader
-        train_loader = get_dataloaders_th(dir_input, dir_gt, th)
-
-        # Definition of the optimizer
-        optimizer = torch.optim.Adam(net.parameters(), lr=lr, weight_decay=0.001)
-
-        # Definition of the loss function
-        loss_f = torch.nn.L1Loss()
+        train_loader = get_dataloaders_th(dir_input, dir_gt, th)  # dataset loader
+        optimizer = torch.optim.Adam(net.parameters(), lr=lr, weight_decay=0.001)  # Definition of the optimizer
+        loss_f = torch.nn.L1Loss()  # Definition of the loss function
 
         # Ready to use the tqdm
         for cycle in tqdm(range(cycles)):

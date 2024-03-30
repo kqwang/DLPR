@@ -96,5 +96,4 @@ if __name__ == "__main__":
         norm=args.norm,
         p_min=args.p_min,
         p_max=args.p_max,
-        dim=args.dim
-    )
+        dim=args.dim)
