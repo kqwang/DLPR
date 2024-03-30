@@ -22,7 +22,6 @@ class PUDataset(Dataset):
 
     ' Ask for input and ground truth'
     def __getitem__(self, index):
-
         # Get an ID of the input and ground truth
         id_input = self.dir_input + self.ids[index] + self.extension
         id_gt = self.dir_gt + self.ids[index] + self.extension
@@ -53,11 +52,9 @@ def get_dataloaders_th(dir_input, dir_gt, th):
     dataloaders = DataLoader(dset, batch_size=1, drop_last=False)  # Create the dataloaders
     return dataloaders
 
-' Return the dataset for testing '
+' Return the dataset for testing/inference'
 def get_dataloader_for_test(dir_img, dir_gt):
     ids = [f[:-4] for f in sorted(os.listdir(dir_img))]  # Read the names of the datas
     dset = PUDataset(ids, dir_img, dir_gt)  # Get the dataset
     dataloader = DataLoader(dset, batch_size=len(ids))  # Create the dataloader
     return dataloader
-
-

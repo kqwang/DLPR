@@ -5,7 +5,6 @@ From: https://github.com/kqwang/DLPR/
 @author: Kaiqiang Wang
 Email: kqwang.optics@gmail.com
 """
-
 import torch
 from functions.propagation import propagation
 
@@ -41,7 +40,6 @@ def train_net_DD(net, device, loader, optimizer, loss_f):
         loss.backward()
         optimizer.step()
     return train_loss.avg, input, output, gt
-
 
 ' network training function for PD'
 def train_net_PD(net, device, loader, optimizer, loss_f, prop_dis=20, norm=False, rand_to_holo=False, dim=256):

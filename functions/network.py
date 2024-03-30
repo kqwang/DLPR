@@ -153,17 +153,6 @@ class Outconv(nn.Module):
         x1 = self.conv(x)
         return x1
 
-' Output layer with relu'
-class Outconv_with_relu(nn.Module):
-    def __init__(self, in_ch, out_ch):
-        super(Outconv_with_relu, self).__init__()
-        self.conv = nn.Conv2d(in_ch, out_ch, kernel_size=1, padding=0)
-        self.rl = nn.ReLU(inplace=False)
-    def forward(self, x):
-        x1 = self.conv(x)
-        x2 = self.rl(x1)
-        return x2
-
 ' Architecture of Res-UNet '
 class UNet(nn.Module):
     def __init__(self):

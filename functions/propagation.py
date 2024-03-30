@@ -10,7 +10,6 @@ import torch
 import math
 from torch.fft import fft2, ifft2, fftshift, ifftshift
 
-
 ' Forward diffraction propagation in pytorch (cuda)'
 def propagation(P, A = np.ones((256, 256)), prop_dis=20, norm=False, dim = 256):
     A = torch.from_numpy(A).cuda().unsqueeze(0).unsqueeze(0)  # amplitude from numpy to torch(cuda)
