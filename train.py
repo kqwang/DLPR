@@ -36,13 +36,14 @@ def get_args():
     parser.add_option('--prop dis', dest='prop_dis', default=20, type='float', help='propagation distance, mm')
     parser.add_option('--dimension', dest='dim', default=256, type='int', help='dimension of the dataset, [dim, dim]')
     parser.add_option('--norm', dest='norm', default=False, type='int', help='Set True for holograms in the range of [0,1]')
-    parser.add_option('-s', "--training strategy", dest='strategy', default="DD", choices=["DD", "tPD", "CD"], help='training strategy, DD, tPD, and CD')
+    parser.add_option('-s', "--training strategy", dest='strategy', default="CD", choices=["DD", "tPD", "CD"], help='training strategy, DD, tPD, and CD')
     parser.add_option('--alpha', dest='alpha', default=0.3, type='float', help='weight of dataset term in the loss function of CD')
+    parser.add_option('--pad', dest='pad', default=False, type='int', help='Set True to do padding to avoid edge diffraction effects')
     (options, args) = parser.parse_args()
     return options
 
 ' Run of the training '
-def setup_and_run(dir_input, dir_gt, dir_model, batch_size, epochs, lr, rth, prop_dis, dim, norm, strategy, alpha):
+def setup_and_run(dir_input, dir_gt, dir_model, batch_size, epochs, lr, rth, prop_dis, dim, norm, strategy, alpha, pad):
     # Use GPU or not
     use_cuda = torch.cuda.is_available()
     device = torch.device("cuda" if use_cuda else "cpu")
@@ -83,10 +84,10 @@ def setup_and_run(dir_input, dir_gt, dir_model, batch_size, epochs, lr, rth, pro
             train_loss, input, output, gt = train_net_DD(net, device, train_loader, optimizer, loss_f)
         elif strategy == "tPD":
             train_loss, input, output, gt = train_net_PD(net, device, train_loader, optimizer, loss_f, prop_dis=prop_dis,
-                                                         norm=norm, rand_to_holo=rth, dim=dim)
+                                                         norm=norm, rand_to_holo=rth, dim=dim, pad=pad)
         elif strategy == "CD":
             train_loss, input, output, gt = train_net_CD(net, device, train_loader, optimizer, loss_f, prop_dis=prop_dis,
-                                                         norm=norm, rand_to_holo=rth, dim=dim, alpha=alpha)
+                                                         norm=norm, rand_to_holo=rth, dim=dim, alpha=alpha, pad=pad)
         else:
             raise Exception("invalid training strategy")
 
@@ -157,4 +158,5 @@ if __name__ == "__main__":
         dim=args.dim,
         norm=args.norm,
         strategy=args.strategy,
-        alpha=args.alpha)
+        alpha=args.alpha,
+        pad=args.pad)

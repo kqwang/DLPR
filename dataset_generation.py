@@ -30,11 +30,12 @@ def get_args():
     parser.add_option('--phase min', dest='p_min', default=1, type='float', help='min of h, where phase in [0, h]')
     parser.add_option('--phase max', dest='p_max', default=1, type='float', help='max of h, where phase in [0, h]')
     parser.add_option('--dimension', dest='dim', default=256, type='int', help='dimension of the dataset, [dim, dim]')
+    parser.add_option('--pad', dest='pad', default=False, type='int', help='Set True to do padding to avoid edge diffraction effects')
     (options, args) = parser.parse_args()
     return options
 
 ' Run of the training and validation '
-def setup_and_run(dir_images, dir_train_in, dir_train_gt, dir_test_in, dir_test_gt, prop_dis, norm, p_min, p_max, dim):
+def setup_and_run(dir_images, dir_train_in, dir_train_gt, dir_test_in, dir_test_gt, prop_dis, norm, p_min, p_max, dim, pad):
 
     image_list = sorted(os.listdir(dir_images))  # paths of row images
 
@@ -56,7 +57,7 @@ def setup_and_run(dir_images, dir_train_in, dir_train_gt, dir_test_in, dir_test_
         P = P * rand
 
         P = torch.from_numpy(P).cuda().unsqueeze(0).unsqueeze(0)  # phase to torch (cuda)
-        H = propagation(P, prop_dis=prop_dis, norm=norm, dim=256)  # Get holograms for phase samples
+        H = propagation(P, prop_dis=prop_dis, norm=norm, dim=256, pad=pad)  # Get holograms for phase samples
         H = H[0, 0, :, :].cpu().numpy()  # holograms to numpy
         P = P[0, 0, :, :].cpu().numpy()  # phases to numpy
 
@@ -71,6 +72,7 @@ def setup_and_run(dir_images, dir_train_in, dir_train_gt, dir_test_in, dir_test_
 
         # See some generated holograms and phases
         if ii % int(len(image_list)/5) == 0:
+        # if ii % 1 == 0:
             plt.subplot(121)
             plt.imshow(H, cmap="gray")
             plt.title('hologram (input)')
@@ -96,4 +98,5 @@ if __name__ == "__main__":
         norm=args.norm,
         p_min=args.p_min,
         p_max=args.p_max,
-        dim=args.dim)
+        dim=args.dim,
+        pad=args.pad)
