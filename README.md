@@ -1,6 +1,19 @@
 # Deep learning phase recovery (DLPR)
 
-Kaiqiang Wang and Edmund Y. Lam, "Harnessing Data and Physics for Deep Learning Phase Recovery", [\[Preprint\]](https://arxiv.org/abs/2404.01360).
+Kaiqiang Wang and Edmund Y. Lam, "Deep learning phase recovery: data-driven, physics-driven, or a combination of both?", [\[Advanced Photonics Nexus\]](https://doi.org/10.1117/1.APN.3.5.056006).
+
+```
+@article{wangDeepLearningPhase2024b,
+  title = {Deep Learning Phase Recovery: Data-Driven, Physics-Driven, or a Combination of Both?},
+  author = {Wang, Kaiqiang and Lam, Edmund Y.},
+  year = {2024},
+  journal = {Advanced Photonics Nexus},
+  volume = {3},
+  number = {05},
+  doi = {10.1117/1.APN.3.5.056006}
+}
+```
+
 
 ## Environment requirements
 - python == 3.8.18
