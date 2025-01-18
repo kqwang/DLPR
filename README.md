@@ -1,6 +1,7 @@
 # Deep learning phase recovery (DLPR)
+Code for end-to-end deep learning phase recovery，including data-driven (**DD**), untrained PD (**uPD**), trained PD (**tPD**), tPD with refinement (**tPDr**), and co-driven (**CD**).
 
-Kaiqiang Wang and Edmund Y. Lam, "[Deep learning phase recovery: data-driven, physics-driven, or a combination of both?](https://doi.org/10.1117/1.APN.3.5.056006)", Advanced Photonics Nexus 3, 056006 (2024).
+From **Kaiqiang Wang and Edmund Y. Lam, "[Deep learning phase recovery: data-driven, physics-driven, or a combination of both?](https://doi.org/10.1117/1.APN.3.5.056006)", Advanced Photonics Nexus 3, 056006 (2024)**.
 
 ```
 @article{wangDeepLearningPhase2024b,
