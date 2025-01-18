@@ -1,5 +1,5 @@
 """
-pytorch-based forward diffraction propagation
+pytorch-based diffraction propagation
 
 From: https://github.com/kqwang/DLPR/
 @author: Kaiqiang Wang
@@ -18,7 +18,7 @@ def propagation(P,  prop_dis=20, norm=False, dim = 256, pad=None):
     A = np.ones(dim, dim)
     A = torch.from_numpy(A).cuda().unsqueeze(0).unsqueeze(0)  # amplitude from numpy to torch(cuda)
 
-    # avoid edge diffraction effects through padding
+    # avoid edge diffraction effects with padding
     if pad:
         p2d = (int(dim/4), int(dim/4), int(dim/4), int(dim/4))  # pad last dim and 2nd to last
         A = F.pad(A, p2d, "replicate") # pad A
