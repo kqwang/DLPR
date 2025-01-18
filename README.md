@@ -64,19 +64,19 @@ DLPR
 ```
 | Folders or files | Use |  
 |  :----  | :----  |
-| `dataset_generation.py` | generate paired hologram-phase datasets |  
-| `train.py` | train the neural network in the strategies of DD, tPD, and CD | 
-| `one_infer.py` | infer the neural network in the strategies of DD, tPD, or CD | 
-| `multiple_infer.py` | infer the neural network in the strategies of uPD or tPDr | 
-| `/functions/` | contains functions to be called | 
-| `/datasets/raw_images/` | contains raw images used for dataset generation | 
-| `/datasets/train_in/`| contains the generated holograms for network training  | 
-| `/datasets/train_gt/`| contains the generated phases for network training | 
-| `/datasets/test_in/`| contains the generated holograms for network inference  | 
-| `/datasets/test_gt/`| contains the generated phases for network inference  | 
-| `/models_and_results/model_weights/`|  contains the trained network weights and training process | 
-| `/models_and_results/results_DD_tPD_CD/`|  contains the inference results of DD, tPD, and CD.  | 
-| `/models_and_results/results_uPD_tPDr/`|  contains the inference results of uPD and tPDr| 
+| **`./dataset_generation.py`** | generate paired hologram-phase datasets |  
+| **`./train.py`** | train the neural network in the strategies of DD, tPD, and CD | 
+| **`./one_infer.py`** | infer the neural network in the strategies of DD, tPD, or CD | 
+| **`./multiple_infer.py`** | infer the neural network in the strategies of uPD or tPDr | 
+| `./functions/` | contains functions to be called | 
+| `./datasets/raw_images/` | contains raw images used for dataset generation | 
+| `./datasets/train_in/`| contains the generated holograms for network training  | 
+| `./datasets/train_gt/`| contains the generated phases for network training | 
+| `./datasets/test_in/`| contains the generated holograms for network inference  | 
+| `./datasets/test_gt/`| contains the generated phases for network inference  | 
+| `./models_and_results/model_weights/`|  contains the trained network weights and training process | 
+| `./models_and_results/results_DD_tPD_CD/`|  contains the inference results of DD, tPD, and CD.  | 
+| `./models_and_results/results_uPD_tPDr/`|  contains the inference results of uPD and tPDr| 
 
 ## Step 1: dataset generation
 - Download image datasets such as [ImageNet](https://www.image-net.org/), [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html), [COCO](https://cocodataset.org/), [LFW](https://vis-www.cs.umass.edu/lfw/), and [MNIST](https://yann.lecun.com/exdb/mnist/). Alternatively,  [randimage](https://pypi.org/project/randimage/) can be used to generate random unnatural images.
