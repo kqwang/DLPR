@@ -81,7 +81,9 @@ def train_net_CD(net, device, loader, optimizer, loss_f, prop_dis=20, norm=False
         H = propagation(output, prop_dis=prop_dis, norm=norm, dim=dim, pad=pad)
         loss0 = loss_f(output, gt)  # Loss calculation of DD
         loss1 = loss_f(input, H)  # Loss calculation of PD
-        loss = alpha*loss0 + loss1
+        # loss = alpha*loss0 + loss1
+        loss = alpha*loss0 + (1-alpha)*loss1
+            
         train_loss.update(loss.item(), output.size(0))  # Update the record
 
         # Back propagation
