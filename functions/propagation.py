@@ -15,7 +15,7 @@ from matplotlib import pyplot as plt
 
 ' Forward diffraction propagation in pytorch (cuda)'
 def propagation(P,  prop_dis=20, norm=False, dim = 256, pad=None):
-    A = np.ones(dim, dim)
+    A = np.ones((dim, dim))
     A = torch.from_numpy(A).cuda().unsqueeze(0).unsqueeze(0)  # amplitude from numpy to torch(cuda)
 
     # avoid edge diffraction effects with padding
@@ -73,3 +73,4 @@ def propagation(P,  prop_dis=20, norm=False, dim = 256, pad=None):
         H = torch.div((H - H_min), (H_max - H_min))
 
     return H
+
